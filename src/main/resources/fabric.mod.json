@@ -1,31 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "interfaceprotection",
+  "id": "interfaceprotectionrtm",
   "version": "${version}",
-
-  "name": "InterfaceProtection",
+  "name": "InterfaceProtectionRTM",
   "description": "",
   "authors": [],
   "contact": {},
-
   "license": "MIT",
-  "icon": "assets/interfaceprotection/icon.png",
-
+  "icon": "assets/interfaceprotectionrtm/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": ["fun.bm.interfaceprotection.client.InterfaceprotectionDataGenerator"],
-    "client": ["fun.bm.interfaceprotection.client.InterfaceprotectionClient"],
-    "main": ["fun.bm.interfaceprotection.Interfaceprotection"]
+    "fabric-datagen": [
+      "fun.bm.interfaceprotectionrtm.client.InterfaceprotectionrtmDataGenerator"
+    ],
+    "client": [
+      "fun.bm.interfaceprotectionrtm.client.InterfaceprotectionrtmClient"
+    ],
+    "main": [
+      "fun.bm.interfaceprotectionrtm.Interfaceprotectionrtm"
+    ]
   },
-
   "mixins": [
-    "interfaceprotection.mixins.json"
-    ,{
-      "config": "interfaceprotection.client.mixins.json",
+    "interfaceprotectionrtm.mixins.json",
+    {
+      "config": "interfaceprotectionrtm.client.mixins.json",
       "environment": "client"
     }
   ],
-
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",

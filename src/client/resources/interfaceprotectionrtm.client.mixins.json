@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "fun.bm.interfaceprotection.mixin.client",
+  "package": "fun.bm.interfaceprotectionrtm.mixin.client",
   "compatibilityLevel": "JAVA_17",
   "client": [
   ],

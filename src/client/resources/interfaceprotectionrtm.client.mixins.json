@@ -1,14 +1,20 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "fun.bm.interfaceprotectionrtm.mixin.client",
+  "package": "fun.bm.interfaceprotectionrtm.client.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "MinecraftClientMixin",
+    "ResourceReloadLoggerMixin",
+    "ScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-  }
+  },
+  "mixins": [
+    "ResourcePackSendS2CPacketMixin"
+  ]
 }

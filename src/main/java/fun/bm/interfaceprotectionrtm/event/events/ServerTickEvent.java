@@ -2,12 +2,15 @@ package fun.bm.interfaceprotectionrtm.event.events;
 
 import fun.bm.interfaceprotectionrtm.data.action.IgnoreReason;
 import fun.bm.interfaceprotectionrtm.data.action.TargetAimManager;
+import fun.bm.interfaceprotectionrtm.data.subscribes.SubscribeManager;
 import fun.bm.interfaceprotectionrtm.enums.EnumCannel;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Pair;
 
 public class ServerTickEvent {
+    private static final int cleanPeriod = 15 * 60 * 20;
+
     public static void register() {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             TargetAimManager.tick();
@@ -37,6 +40,10 @@ public class ServerTickEvent {
                         }
                     }
                 }
+            }
+
+            if (server.getTicks() % cleanPeriod == 0) {
+                SubscribeManager.clean(server);
             }
         });
     }

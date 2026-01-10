@@ -54,7 +54,11 @@ public class ClientConfigCommand extends AbstractConfigCommand {
                                                                                     path = "";
                                                                                 }
                                                                                 int dotIndex = path.lastIndexOf(".");
-                                                                                builder = builder.createOffset(builder.getInput().lastIndexOf(' ') + dotIndex + 2);
+                                                                                int spaceIndex = builder.getInput().lastIndexOf(' ');
+                                                                                int safeOffset = Math.max(0, spaceIndex + dotIndex + 2);
+                                                                                safeOffset = Math.min(safeOffset, builder.getInput().length());
+                                                                                builder = builder.createOffset(safeOffset);
+
                                                                                 for (String s : configfile.completeConfigPath(path)) {
                                                                                     builder.suggest(s.substring(path.lastIndexOf('.') + 1));
                                                                                 }

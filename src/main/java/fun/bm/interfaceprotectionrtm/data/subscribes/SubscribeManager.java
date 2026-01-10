@@ -4,12 +4,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Pair;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class SubscribeManager {
-    public static Set<SubscribedPlayer> subscribed_players = new HashSet<>();
+    public static ConcurrentLinkedDeque<SubscribedPlayer> subscribed_players = new ConcurrentLinkedDeque<>();
 
     public static SubscribedPlayer set(ServerPlayerEntity player, Set<Integer> channels) {
         remove(player);
